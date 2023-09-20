@@ -4,33 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fee7ab7e-6263-4069-989c-123c5cb45c3f" name="更改" comment="项目初建">
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院.html" beforeDir="false" afterPath="$PROJECT_DIR$/计算机科学与技术学院.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/114.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/114.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/45.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/45.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/9f19cf64-da4b-4c05-967c-f5b5e54ef0f6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/9f19cf64-da4b-4c05-967c-f5b5e54ef0f6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/_visitcount" beforeDir="false" afterPath="$PROJECT_DIR$/static/_visitcount" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/c92a7905-e193-4aea-b52a-29764a6f337f.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/c92a7905-e193-4aea-b52a-29764a6f337f.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/datepicker.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/datepicker.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/datepicker_lang_HK.js.下载" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/datepicker_lang_HK.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/default.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/dtjt9.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/dtjt9.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/extends.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/extends.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/extends.js.下载" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/extends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/friendlink_02.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/friendlink_02.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/jquery.datepicker.js.下载" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/jquery.datepicker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/jquery.min.js.下载" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/jquery.sudy.js.下载" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/jquery.sudy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/jquery.sudy.wp.visitcount.js.下载" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/jquery.sudy.wp.visitcount.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/jquery.sudyNav.js.下载" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/jquery.sudyNav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/more.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/more.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/moreWhite.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/moreWhite.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/simplenews.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/simplenews.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/sudyNav.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/sudyNav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/system(1).css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/system(1).css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算机科学与技术学院_files/system.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/system.css" afterDir="false" />
+    <list default="true" id="fee7ab7e-6263-4069-989c-123c5cb45c3f" name="更改" comment="目录归并">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +60,7 @@
       <updated>1695214113796</updated>
       <workItem from="1695214115178" duration="24000" />
       <workItem from="1695214185000" duration="87000" />
-      <workItem from="1695214297512" duration="987000" />
+      <workItem from="1695214297512" duration="1915000" />
     </task>
     <task id="LOCAL-00001" summary="项目初建">
       <option name="closed" value="true" />
@@ -95,7 +70,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695214332419</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="目录归并">
+      <option name="closed" value="true" />
+      <created>1695215494988</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1695215494988</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +109,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="项目初建" />
-    <option name="LAST_COMMIT_MESSAGE" value="项目初建" />
+    <MESSAGE value="目录归并" />
+    <option name="LAST_COMMIT_MESSAGE" value="目录归并" />
   </component>
 </project>
