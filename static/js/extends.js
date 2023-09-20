@@ -6,4 +6,4 @@ function runJs(a){var b=document.createElement("script");b.type="text/javascript
 /*
 ** load jquery and jquery plugins for sudy
  */
-var EXTEND_PATH, exScripts = document.getElementsByTagName("script");EXTEND_PATH = exScripts[exScripts.length - 1].getAttribute("src").replace('extends.js','');document.write('<link rel="stylesheet" type="text/css" href="'+EXTEND_PATH+'extends.css" >');window.jQuery || document.write('<script type="text/javascript" src="'+EXTEND_PATH+'libs/jquery.min.js"><\/script>');document.write('<script type="text/javascript" src="'+EXTEND_PATH+'libs/jquery.sudy.js"><\/script>');
+var EXTEND_PATH, exScripts = document.getElementsByTagName("script");EXTEND_PATH = exScripts[exScripts.length - 1].getAttribute("src").replace('extends.js','');document.write('<link rel="stylesheet" type="text/css" href='+EXTEND_PATH+'"../css/extends.css" >');window.jQuery || document.write('<script type="text/javascript" src="'+EXTEND_PATH+'libs/jquery.min.js"><\/script>');document.write('<script type="text/javascript" src="'+EXTEND_PATH+'libs/jquery.sudy.js"><\/script>');
