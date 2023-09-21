@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fee7ab7e-6263-4069-989c-123c5cb45c3f" name="更改" comment="添加资源文件">
+    <list default="true" id="fee7ab7e-6263-4069-989c-123c5cb45c3f" name="更改" comment="首页大图更改（非最终图）">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_upload/tpl/02/99/665/template665/images/header.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/_upload/tpl/02/99/665/template665/images/header.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +68,7 @@
       <workItem from="1695214115178" duration="24000" />
       <workItem from="1695214185000" duration="87000" />
       <workItem from="1695214297512" duration="3282000" />
-      <workItem from="1695281213832" duration="8316000" />
+      <workItem from="1695281213832" duration="9027000" />
     </task>
     <task id="LOCAL-00001" summary="项目初建">
       <option name="closed" value="true" />
@@ -111,7 +110,23 @@
       <option name="project" value="LOCAL" />
       <updated>1695297230406</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="网站头部图片更改">
+      <option name="closed" value="true" />
+      <created>1695300177636</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1695300177636</updated>
+    </task>
+    <task id="LOCAL-00007" summary="首页大图更改（非最终图）">
+      <option name="closed" value="true" />
+      <created>1695300231478</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1695300231478</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +163,8 @@
     <MESSAGE value="重建" />
     <MESSAGE value="目录移动" />
     <MESSAGE value="添加资源文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加资源文件" />
+    <MESSAGE value="网站头部图片更改" />
+    <MESSAGE value="首页大图更改（非最终图）" />
+    <option name="LAST_COMMIT_MESSAGE" value="首页大图更改（非最终图）" />
   </component>
 </project>
