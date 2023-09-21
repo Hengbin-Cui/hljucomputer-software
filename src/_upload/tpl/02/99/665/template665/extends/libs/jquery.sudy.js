@@ -19,7 +19,7 @@
                     h = [];
                 return a.each(g, function(b, c) {
                     c = c.replace(/<!--[\s\S]*?-->/g, ""), h[b] = "", a.each(e, function() {
-                        h[b] += c.replace(/\[%title%\]/g, this.title).replace(/(\/page\/main\d+\/|\/_upload[\s\S]*?\/template\d+\/)?\[%url%\]/g, this.url).replace(/(\/page\/main\d+\/|\/_upload[\s\S]*?\/template\d+\/)?\[%src%\]/g, this.src).replace(/\[%text%\]/g, this.text)
+                        h[b] += c.replace(/\[%title%\]/g, this.title).replace(/(\/page\/main\d+\/|\./_upload[\s\S]*?\/template\d+\/)?\[%url%\]/g, this.url).replace(/(\/page\/main\d+\/|\./_upload[\s\S]*?\/template\d+\/)?\[%src%\]/g, this.src).replace(/\[%text%\]/g, this.text)
                     }), f = f.replace(/<!--LoopBegin-->[\s\S]*?<!--LoopEnd-->/i, h[b])
                 }), f = a.trim(f.replace(/(\n[\s|\t]*\r*\n)/g, "\n")), b.html(f), d.callback(b)
             }
