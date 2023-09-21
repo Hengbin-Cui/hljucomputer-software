@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fee7ab7e-6263-4069-989c-123c5cb45c3f" name="更改" comment="添加了.gitignore文件" />
+    <list default="true" id="fee7ab7e-6263-4069-989c-123c5cb45c3f" name="更改" comment="添加了.gitignore文件">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,7 +68,7 @@
       <workItem from="1695214115178" duration="24000" />
       <workItem from="1695214185000" duration="87000" />
       <workItem from="1695214297512" duration="3282000" />
-      <workItem from="1695281213832" duration="10135000" />
+      <workItem from="1695281213832" duration="10908000" />
     </task>
     <task id="LOCAL-00001" summary="项目初建">
       <option name="closed" value="true" />
@@ -140,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695302373873</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="添加了.gitignore文件">
+      <option name="closed" value="true" />
+      <created>1695302494381</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1695302494381</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
