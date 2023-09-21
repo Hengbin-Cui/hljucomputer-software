@@ -94,7 +94,7 @@ p {
 
 body {
     background: #fff;
-    background: url(images/bgC.jpg) center 520px no-repeat;
+    background: url(bgC.jpg) center 520px no-repeat;
     font: 16px/1 Microsoft YaHei;
 }
 
@@ -145,7 +145,7 @@ a:visited {
 /**头部**/
 
 .wp-header {
-    background: url(images/header.png) no-repeat center;
+    background: url(images/i_r4_c2.jpg) no-repeat center;
     height: 125px;
 }
 
@@ -276,7 +276,7 @@ a.WhiteLink:active {
 }
 
 .wp-search .search-input input.search-title {
-    background: #5188be url("images/search.png") no-repeat scroll left center;
+    background: #5188be url("search.png") no-repeat scroll left center;
     border: 0 none;
     color: #fff;
     font-size: 14px;
@@ -301,7 +301,7 @@ a.WhiteLink:active {
     height: 34px;
     border: 0;
     outline: 0;
-    background: url(images/search_.png) no-repeat center center;
+    background: url(search_.png) no-repeat center center;
     cursor: pointer;
 }
 
@@ -337,7 +337,7 @@ a.WhiteLink:active {
 /**主导航**/
 
 .wp-nav {
-    background: url(images/nav.png) no-repeat center;
+    background: url(nav.png) no-repeat center;
     height: 45px;
     position: absolute;
     top: 125px;
@@ -757,32 +757,32 @@ a.WhiteLink:active {
 /**新闻列表图标**/
 
 .post-5 .tt .tit {
-    background: url(images/dot5.png) no-repeat 12px;
+    background: url(dot5.png) no-repeat 12px;
     padding-left: 32px;
 }
 
 .post-6 .tt .tit {
-    background: url(images/dot6.png) no-repeat 12px;
+    background: url(dot6.png) no-repeat 12px;
     padding-left: 32px;
 }
 
 .post-7 .tt .tit {
-    background: url(images/dot7.png) no-repeat 12px;
+    background: url(dot7.png) no-repeat 12px;
     padding-left: 32px;
 }
 
 .post-8 .tt .tit {
-    background: url(images/dot8.png) no-repeat 12px;
+    background: url(dot8.png) no-repeat 12px;
     padding-left: 32px;
 }
 
 .post-9 .tt .tit {
-    background: url(images/dot9.png) no-repeat 12px;
+    background: url(dot9.png) no-repeat 12px;
     padding-left: 32px;
 }
 
 .post-10 .tt .tit {
-    background: url(images/dot10.png) no-repeat 12px;
+    background: url(dot10.png) no-repeat 12px;
     padding-left: 32px;
 }
 
@@ -791,7 +791,7 @@ a.WhiteLink:active {
  */
 
 .post-7 .wp_article_list .list_item .pr_fields {
-    background: url(images/wp_article_li_2.png) no-repeat scroll left 15px;
+    background: url(wp_article_li_2.png) no-repeat scroll left 15px;
     padding-left: 10px;
 }
 
@@ -799,7 +799,7 @@ a.WhiteLink:active {
 .post-6 .wp_article_list .list_item .pr_fields,
 .post-8 .wp_article_list .list_item .pr_fields,
 .post-9 .wp_article_list .list_item .pr_fields {
-    background: url(images/wp_article_li_2.png) no-repeat scroll left 15px;
+    background: url(wp_article_li_2.png) no-repeat scroll left 15px;
     padding-left: 8px;
 }
 

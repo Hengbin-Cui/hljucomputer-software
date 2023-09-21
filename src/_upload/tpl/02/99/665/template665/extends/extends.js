@@ -34,6 +34,6 @@ function getImgJson(p) {
  */
 var EXTEND_PATH, exScripts = document.getElementsByTagName("script");
 EXTEND_PATH = exScripts[exScripts.length - 1].getAttribute("src").replace('extends.js', '');
-document.write('<link rel="stylesheet" type="text/css" href="' + EXTEND_PATH + 'extends.css" >');
+document.write('<link rel="stylesheet" type="text/css" href=' + EXTEND_PATH + '"extends.css" >');
 window.jQuery || document.write('<script type="text/javascript" src="' + EXTEND_PATH + 'libs/jquery.min.js"><\/script>');
-document.write('<script type="text/javascript" src="' + EXTEND_PATH + 'libs/jquery.sudy.js"><\/script>');
+document.write('<script type="text/javascript" src=' + EXTEND_PATH + '"libs/jquery.sudy.js"><\/script>');
