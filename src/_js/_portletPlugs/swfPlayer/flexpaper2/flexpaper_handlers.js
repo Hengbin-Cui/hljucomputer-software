@@ -1,13 +1,13 @@
 /**
- * Handles the event of external links getting clicked in the document. 
+ * Handles the event of external links getting clicked in the document.
  *
  * @example onExternalLinkClicked("http://www.google.com/")
  *
  * @param String link
  */
-function onExternalLinkClicked(link){
-   // alert("link " + link + " clicked" );
-   window.location.href = link;
+function onExternalLinkClicked(link) {
+    // alert("link " + link + " clicked" );
+    window.location.href = link;
 }
 
 /**
@@ -18,14 +18,14 @@ function onExternalLinkClicked(link){
  * @param int loaded
  * @param int total
  */
-function onProgress(loadedBytes,totalBytes){
+function onProgress(loadedBytes, totalBytes) {
 }
 
 /**
  * Handles the event of a document is in progress of loading
  *
  */
-function onDocumentLoading(){
+function onDocumentLoading() {
 }
 
 /**
@@ -35,7 +35,7 @@ function onDocumentLoading(){
  *
  * @param int pagenum
  */
-function onCurrentPageChanged(pagenum){
+function onCurrentPageChanged(pagenum) {
 }
 
 /**
@@ -45,14 +45,14 @@ function onCurrentPageChanged(pagenum){
  *
  * @param int totalPages
  */
-function onDocumentLoaded(totalPages){
+function onDocumentLoaded(totalPages) {
 }
 
 /**
  * Handles the event of a document is in progress of loading
  *
  */
-function onPageLoading(pageNumber){
+function onPageLoading(pageNumber) {
 }
 
 /**
@@ -62,7 +62,7 @@ function onPageLoading(pageNumber){
  *
  * @param int pageNumber
  */
-function onPageLoaded(pageNumber){
+function onPageLoaded(pageNumber) {
 }
 
 /**
@@ -72,7 +72,7 @@ function onPageLoaded(pageNumber){
  *
  * @param String errorMessage
  */
-function onDocumentLoadedError(errMessage){
+function onDocumentLoadedError(errMessage) {
 }
 
 /**
@@ -81,5 +81,5 @@ function onDocumentLoadedError(errMessage){
  * @example onDocumentPrinted();
  *
  */
-function onDocumentPrinted(){
+function onDocumentPrinted() {
 }

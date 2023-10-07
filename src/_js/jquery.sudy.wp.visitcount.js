@@ -3,11 +3,11 @@
  * add by lcfeng
  */
 ;
-(function($) {
-    $.fn.WPVisitCount = function(options) {
+(function ($) {
+    $.fn.WPVisitCount = function (options) {
         var defaults = {};
         var options = $.extend(defaults, options);
-        $(this).each(function() {
+        $(this).each(function () {
             var url = $(this).attr("url");
             if (url) {
                 initVisitCount(url, $(this));
@@ -20,23 +20,24 @@
                 type: "post",
                 dataType: "text",
                 url: url,
-                success: function(result) {
+                success: function (result) {
                     if (result !== '' && result !== '0' && result !== '<span>0</span>') {
                         obj.html(result);
                         obj.show();
                     }
                 },
-                error: function(error) {}
+                error: function (error) {
+                }
             });
         }
     };
 
-    $.fn.WPColListVisitCount = function(options) {
+    $.fn.WPColListVisitCount = function (options) {
         var defaults = {};
         var options = $.extend(defaults, options);
-        var colId = new Array();
+        var colId = [];
         var colIds = "";
-        $(this).each(function() {
+        $(this).each(function () {
             var id = $(this).attr("colId");
             var siteId = $(this).attr("siteId");
             id += "_" + siteId;
@@ -71,9 +72,9 @@
             data: {
                 columnIds: colIds
             },
-            success: function(result) {
+            success: function (result) {
                 if (result !== '' && result !== null) {
-                    $.each(result, function(n, value) {
+                    $.each(result, function (n, value) {
                         var listVisitCount = $("span[colListVisitCountId=wp_colListVisitCount_" + value.columnId + "]");
                         var oldCount = listVisitCount.html();
                         var num = oldCount > value.count ? (oldCount - value.count) : (value.count - oldCount);
@@ -84,14 +85,14 @@
                 }
             }
         });
-    };
+    }
 
-    $.fn.WPArticleReadStatus = function(options) {
+    $.fn.WPArticleReadStatus = function (options) {
         var defaults = {};
         var options = $.extend(defaults, options);
-        var artId = new Array();
+        var artId = [];
         var articleIds = "";
-        $(this).each(function() {
+        $(this).each(function () {
             var id = $(this).attr("artId");
             artId.push(id);
             artId = unique(artId);
@@ -131,7 +132,7 @@
             url: url,
             dataType: 'text',
             type: "post",
-            success: function(result) {
+            success: function (result) {
                 if (result !== "") {
                     var artIds = result.split(",");
                     for (var i = 0; i < artIds.length; i++) {
@@ -140,14 +141,14 @@
                 }
             }
         });
-    };
+    }
 
-    $.fn.WPListVisitCount = function(options) {
+    $.fn.WPListVisitCount = function (options) {
         var defaults = {};
         var options = $.extend(defaults, options);
-        var artId = new Array();
+        var artId = [];
         var articleIds = "";
-        $(this).each(function() {
+        $(this).each(function () {
             var id = $(this).attr("artId");
             artId.push(id);
             artId = unique(artId);
@@ -179,9 +180,9 @@
             url: url,
             dataType: 'json',
             type: 'post',
-            success: function(result) {
+            success: function (result) {
                 if (result !== '' && result !== null) {
-                    $.each(result, function(n, value) {
+                    $.each(result, function (n, value) {
                         var listVisitCount = $("span[listVisitCountId=wp_listVisitCount_" + value.articleId + "]");
                         listVisitCount.html(value.count);
                         listVisitCount.css('visibility', 'visible');
@@ -189,10 +190,10 @@
                 }
             }
         });
-    };
+    }
 })(jQuery);
 
-$(document).ready(function() {
+$(document).ready(function () {
     if ($('.WP_VisitCount').hasClass('WP_VisitCount')) {
         $('.WP_VisitCount').WPVisitCount();
     }

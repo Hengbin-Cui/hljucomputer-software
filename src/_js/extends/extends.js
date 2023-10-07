@@ -22,7 +22,7 @@ function Imgpd(a, b, c, d) {
 function getImgJson(p) {
     var imgJson = [];
     if ("undefined" !== eval("typeof imgText" + p)) {
-        eval("var title = imgText" + p + ", url = imgLink" + p + ", text = imgContent" + p + ", img = imgUrl" + p + ";");
+        eval("var title = imgText" + p + ", url = imgLink" + p + ", text = imgContent" + p + ", img = imgUrl" + p + "");
         var i;
         for (i = 1; i < title.length; i++) imgJson[i - 1] = new Imgpd(title[i], url[i], text[i], img[i])
     } else "undefined" !== eval("typeof w" + p + "imgJsons") && eval("imgJson = w" + p + "imgJsons");

@@ -1,15 +1,16 @@
 /*
  ** sudyTpl for javascript template
  */
-! function(a) {
-    a.fn.sudyTpl = function(b) {
+!function (a) {
+    a.fn.sudyTpl = function (b) {
         var c = {
                 p: null,
                 json: null,
-                callback: function() {}
+                callback: function () {
+                }
             },
             d = a.extend(!0, {}, c, b);
-        return this.each(function() {
+        return this.each(function () {
             var b = a(this),
                 c = a('[type="text/template"]', b),
                 e = [];
@@ -17,9 +18,19 @@
                 var f = c.get(0).text,
                     g = f.match(/<!--LoopBegin-->[\s\S]*?<!--LoopEnd-->/gi),
                     h = [];
-                return a.each(g, function(b, c) {
-                    c = c.replace(/<!--[\s\S]*?-->/g, ""), h[b] = "", a.each(e, function() {
-                        h[b] += c.replace(/\[%title%\]/g, this.title).replace(/(\/page\/main\d+\/|\./_upload[\s\S]*?\/template\d+\/)?\[%url%\]/g, this.url).replace(/(\/page\/main\d+\/|\./_upload[\s\S]*?\/template\d+\/)?\[%src%\]/g, this.src).replace(/\[%text%\]/g, this.text)
+                return a.each(g, function (b, c) {
+                    c = c.replace(/<!--[\s\S]*?-->/g, ""), h[b] = "", a.each(e, function () {
+                        h[b] += c.replace(/\[%title%\]/g, this.title).replace(/(\/page\/main\d+\/|\./
+                        _upload[\s\S
+                    ]*
+                            ?\/template\d+\/)?\[%url%\]/g, this.url
+                    ).
+                        replace(/(\/page\/main\d+\/|\./
+                        _upload[\s\S
+                    ]*
+                            ?\/template\d+\/)?\[%src%\]/g, this.src
+                    ).
+                        replace(/\[%text%\]/g, this.text)
                     }), f = f.replace(/<!--LoopBegin-->[\s\S]*?<!--LoopEnd-->/i, h[b])
                 }), f = a.trim(f.replace(/(\n[\s|\t]*\r*\n)/g, "\n")), b.html(f), d.callback(b)
             }
@@ -30,10 +41,10 @@
 /*
 sudyTouch for support touch
  */
-! function(a) {
-    a.fn.sudyTouch = function(b) {
-        return this.each(function() {
-            a(this).width(), a(this).height(), a(this).on("touchstart", function(c) {
+!function (a) {
+    a.fn.sudyTouch = function (b) {
+        return this.each(function () {
+            a(this).width(), a(this).height(), a(this).on("touchstart", function (c) {
                 var d = c.originalEvent.touches[0],
                     e = Number(new Date),
                     f = a(this).position();
@@ -44,7 +55,7 @@ sudyTouch for support touch
                     startX: f.left,
                     startY: f.top
                 }), b.swipeStart && b.swipeStart.call(this, f.left, f.top), c.stopPropagation()
-            }).on("touchmove", function(c) {
+            }).on("touchmove", function (c) {
                 var d = c.originalEvent.touches[0],
                     e = Number(new Date),
                     f = d.pageX - a.data(this, "touchstart").posX,
@@ -54,7 +65,7 @@ sudyTouch for support touch
                     posY: d.pageY,
                     timer: e
                 }), b.swipeMove && (c.preventDefault(), b.swipeMove.call(this, f, g, deltaT)), (b.swipeRight || b.swipeLeft) && Math.abs(f) > Math.abs(g) && c.preventDefault(), (b.swipeTop || b.swipeBottom) && Math.abs(g) > Math.abs(f) && c.preventDefault(), c.stopPropagation()
-            }).on("touchend", function() {
+            }).on("touchend", function () {
                 var c = Number(new Date),
                     d = a.data(this, "touchmove").posX - a.data(this, "touchstart").posX,
                     f = a.data(this, "touchmove").posY - a.data(this, "touchstart").posY,
@@ -74,10 +85,10 @@ sudyTouch for support touch
 /*
  ** sudyfocus
  */
-! function($) {
-    $.fn.sudyfocus = function(opts) {
+!function ($) {
+    $.fn.sudyfocus = function (opts) {
         function setfoucs(a) {
-            $.each(a, function(a, b) {
+            $.each(a, function (a, b) {
                 if ("img_meta" in o.json[a] && !$.isEmptyObject(o.json[a].img_meta)) {
                     var c = $(b).find("img").eq(0),
                         d = o.json[a].img_meta.focusWidth,
@@ -105,6 +116,7 @@ sudyTouch for support touch
                 }
             })
         }
+
         var defaults = {
                 p: null,
                 json: [],
@@ -136,7 +148,7 @@ sudyTouch for support touch
             zW = o.zWidth,
             zH = o.zHeight,
             r = zW / zH;
-        return null !== o.p && "function" == eval("typeof getImgJson") && (o.json = getImgJson(o.p).concat(o.json)), this.each(function() {
+        return null !== o.p && "function" == eval("typeof getImgJson") && (o.json = getImgJson(o.p).concat(o.json)), this.each(function () {
             function n() {
                 a.css({
                     width: zW + "px",
@@ -169,30 +181,31 @@ sudyTouch for support touch
 
             function x() {
                 var b;
-                a.hover(function() {
+                a.hover(function () {
                     clearInterval(b)
-                }, function() {
-                    b = setInterval(function() {
+                }, function () {
+                    b = setInterval(function () {
                         v()
                     }, o.interval)
                 }).trigger("mouseleave")
             }
+
             var a = $(this),
                 b = a.children(),
                 c = [];
-            if ($.each(b, function(a, b) {
-                    var d = {};
-                    d.title = $(b).attr("data-focus-title") || "", d.url = $(b).attr("data-focus-url") || "", d.text = $(b).attr("data-focus-text") || "", c.push(d)
-                }), a.html(function(a, b) {
-                    return $.each(o.json, function() {
-                        b += '<img src="' + this.src + '">'
-                    }), b
-                }), o.json = c.concat(o.json), o.json.length < 1) return a.html("sudyfocus error: Not Found Data!");
+            if ($.each(b, function (a, b) {
+                var d = {};
+                d.title = $(b).attr("data-focus-title") || "", d.url = $(b).attr("data-focus-url") || "", d.text = $(b).attr("data-focus-text") || "", c.push(d)
+            }), a.html(function (a, b) {
+                return $.each(o.json, function () {
+                    b += '<img src="' + this.src + '">'
+                }), b
+            }), o.json = c.concat(o.json), o.json.length < 1) return a.html("sudyfocus error: Not Found Data!");
             a.children().wrap('<div class="focus-item">').end().wrapInner('<div class="focus-container">');
             var d = $(".focus-container", a),
                 e = $(".focus-item", d).hide(),
                 f = e.length;
-            o.title.active && $('<div class="focus-title-bar"><div class="focus-title-bg"></div><h2 class="focus-title"></h2></div>').appendTo(a), o.text.active && $('<div class="focus-text-box"><div class="focus-text-bg"></div><div class="focus-text-inner"><p class="focus-text"></p></div></div>').appendTo(a), o.navigation && f > 1 && $('<a class="focus-navigation focus-prev">&lt;</a><a class="focus-navigation focus-next">&gt;</a>').appendTo(a), o.pagination && f > 1 && a.append(function() {
+            o.title.active && $('<div class="focus-title-bar"><div class="focus-title-bg"></div><h2 class="focus-title"></h2></div>').appendTo(a), o.text.active && $('<div class="focus-text-box"><div class="focus-text-bg"></div><div class="focus-text-inner"><p class="focus-text"></p></div></div>').appendTo(a), o.navigation && f > 1 && $('<a class="focus-navigation focus-prev">&lt;</a><a class="focus-navigation focus-next">&gt;</a>').appendTo(a), o.pagination && f > 1 && a.append(function () {
                 var a, b, c = $('<div class="focus-pagination"></div>');
                 for (a = 0; f > a; a++) b = a + 1, c.append('<a class="focus-page focus-page-' + b + '"><span>' + b + "</span></a>");
                 return c
@@ -204,13 +217,13 @@ sudyTouch for support touch
                 k = $(".focus-page", j),
                 l = $(".focus-title", g),
                 m = $(".focus-text", h);
-            if (o.isNavHover && (i.hide(), a.hover(function() {
-                    i.show()
-                }, function() {
-                    i.hide()
-                })), o.response) {
+            if (o.isNavHover && (i.hide(), a.hover(function () {
+                i.show()
+            }, function () {
+                i.hide()
+            })), o.response) {
                 var p = a.parent().width();
-                zW = p, zH = zW / r, $(window).resize(function() {
+                zW = p, zH = zW / r, $(window).resize(function () {
                     p = a.parent().width(), zW = p, zH = zW / r, n(), setfoucs(e)
                 })
             }
@@ -218,10 +231,10 @@ sudyTouch for support touch
             var q = o.start > f ? f - 1 : o.start - 1,
                 s = q,
                 t = {
-                    show: function() {
+                    show: function () {
                         e.eq(s).hide().end().eq(q).show()
                     },
-                    slide: function() {
+                    slide: function () {
                         function a() {
                             e.eq(q).css({
                                 left: "100%"
@@ -241,32 +254,33 @@ sudyTouch for support touch
                                 left: "0%"
                             }, o.speed)
                         }
+
                         e.eq(s).show().end().eq(q).show(), f > 1 && (0 == s && q == f - 1 || s == f - 1 && 0 == q ? (0 == s && q == f - 1 && b(), s == f - 1 && 0 == q && a()) : (q > s && a(), s > q && b()))
                     },
-                    fade: function() {
+                    fade: function () {
                         o.crossfade ? e.eq(s).stop().fadeOut(o.speed).end().eq(q).fadeIn(o.speed) : e.eq(s).stop().hide().end().eq(q).fadeIn(o.speed)
                     }
                 };
             o.autoPlay && x();
             var y = $(".focus-prev", a),
                 z = $(".focus-next", a);
-            y.click(function() {
+            y.click(function () {
                 w()
-            }), z.click(function() {
+            }), z.click(function () {
                 v()
-            }), k.click(function() {
+            }), k.click(function () {
                 q = $(this).index(), u()
             }), $.fn.sudyTouch && d.sudyTouch({
-                swipeStart: function() {
+                swipeStart: function () {
                     a.trigger("mouseenter")
                 },
-                swipeLeft: function() {
+                swipeLeft: function () {
                     v()
                 },
-                swipeRight: function() {
+                swipeRight: function () {
                     w()
                 },
-                swipeEnd: function() {
+                swipeEnd: function () {
                     a.trigger("mouseleave")
                 }
             }), u()
@@ -277,8 +291,8 @@ sudyTouch for support touch
 /*
  ** other extends
  */
-! function(a) {
-    a.fn.sudySelect = function(b) {
+!function (a) {
+    a.fn.sudySelect = function (b) {
         var c = {
                 handle: ".select-name",
                 selects: ".select-list",
@@ -289,7 +303,7 @@ sudyTouch for support touch
                 autoWidth: !0
             },
             d = a.extend(!0, {}, c, b);
-        return this.each(function() {
+        return this.each(function () {
             function g() {
                 "slide" == d.effect ? e.stop(!0, !0).slideDown(d.speed) : "fade" == d.effect ? e.stop(!0, !0).fadeIn(d.speed) : $vp.show()
             }
@@ -297,6 +311,7 @@ sudyTouch for support touch
             function h() {
                 "slide" == d.effect ? e.stop(!0, !1).slideUp(d.speed) : "fade" == d.effect ? e.stop(!0, !1).fadeOut(d.speed) : e.hide()
             }
+
             var b = a(this),
                 c = a(this).find(d.handle),
                 e = a(this).find(d.selects),
@@ -310,17 +325,17 @@ sudyTouch for support touch
             })) : "up" == d.dir && (b.addClass("select-up"), e.css({
                 bottom: f + "px",
                 top: "auto"
-            })), c.on(d.trigger, function() {
+            })), c.on(d.trigger, function () {
                 "click" == d.trigger ? (c.toggleClass("select-open"), c.hasClass("select-open") ? g() : h()) : (c.addClass("select-open"), g()), e.children().removeClass("hover")
-            }), b.on("mouseleave", function() {
+            }), b.on("mouseleave", function () {
                 c.removeClass("select-open"), h()
-            }), e.children().mouseenter(function() {
+            }), e.children().mouseenter(function () {
                 a(this).addClass("hover").siblings().removeClass("hover")
-            }), e.children().on("click", function() {
+            }), e.children().on("click", function () {
                 c.text(a(this).text()), a(this).addClass("selected").siblings().removeClass("selected"), c.removeClass("select-open"), h()
             }).eq(0).trigger("click")
         })
-    }, a.fn.sudyPubdate = function(b) {
+    }, a.fn.sudyPubdate = function (b) {
         function e(a) {
             var b = a;
             switch (a) {
@@ -403,6 +418,7 @@ sudyTouch for support touch
             }
             return b
         }
+
         var c = {
                 target: ".pubdate",
                 lang: "num",
@@ -412,7 +428,7 @@ sudyTouch for support touch
                 tpl: '<div class="sudy-pubdate"><span class="pubdate-month">%m%\u6708</span><span class="pubdate-day">%d%</span></div>'
             },
             d = a.extend(!0, {}, c, b);
-        return this.each(function() {
+        return this.each(function () {
             var c = (a(this), a(this).find(d.target)),
                 g = a.trim(c.text()).split(d.separator),
                 h = parseInt(g[d.format.indexOf("\u5e74")], 10),
@@ -422,7 +438,7 @@ sudyTouch for support touch
             var k = d.tpl.replace("%Y%", h).replace("%m%", i).replace("%d%", j);
             c.html(k)
         })
-    }, a.fn.sudyTab = function(b) {
+    }, a.fn.sudyTab = function (b) {
         var c = {
                 handle: ".tab-menu > li",
                 content: ".tab-list > li,.tab-more > li",
@@ -435,54 +451,55 @@ sudyTouch for support touch
                 }
             },
             d = a.extend(!0, {}, c, b);
-        return this.each(function() {
+        return this.each(function () {
             var b = a(this),
                 c = a(this).find(d.handle),
                 e = d.content.split(","),
                 f = d.start - 1,
                 g = c.length,
                 h = f;
-            if (a.each(c, function(f, g) {
-                    a(g).on(d.trigger, function() {
-                        h = f, c.removeClass("selected"), a(this).addClass("selected"), a.each(e, function(c, d) {
-                            a(d, b).removeClass("active").hide(), a(d, b).eq(f).addClass("active").show()
-                        })
+            if (a.each(c, function (f, g) {
+                a(g).on(d.trigger, function () {
+                    h = f, c.removeClass("selected"), a(this).addClass("selected"), a.each(e, function (c, d) {
+                        a(d, b).removeClass("active").hide(), a(d, b).eq(f).addClass("active").show()
                     })
-                }), d.autoPlay.active) {
-                var i, h, j = function(a) {
-                    c.eq(a).trigger(d.trigger), i = setTimeout(function() {
+                })
+            }), d.autoPlay.active) {
+                var i, h, j = function (a) {
+                    c.eq(a).trigger(d.trigger), i = setTimeout(function () {
                         a++, a > g - 1 && (a = 0), j(a)
                     }, d.autoPlay.interval)
                 };
-                j(f), b.hover(function() {
+                j(f), b.hover(function () {
                     clearTimeout(i)
-                }, function() {
+                }, function () {
                     j(h)
                 })
             } else c.eq(f).trigger(d.trigger)
         })
-    }, a.fn.sudyInput = function(b) {
+    }, a.fn.sudyInput = function (b) {
         var c = {
                 tip: ".tip"
             },
             d = a.extend(!0, {}, c, b);
-        return this.each(function() {
+        return this.each(function () {
             function f() {
                 var a = e.val();
                 a !== c.text() && "" !== a ? c.hide() : (c.show(), e.val(""))
             }
+
             var b = a(this),
                 c = a(this).find(d.tip),
                 e = a(this).find("input,textarea");
-            b.click(function() {
+            b.click(function () {
                 e.trigger("focus")
-            }), e.focus(function() {
+            }), e.focus(function () {
                 c.hide()
-            }), e.blur(function() {
+            }), e.blur(function () {
                 f()
             })
         })
-    }, a.fn.sudyClock = function(b) {
+    }, a.fn.sudyClock = function (b) {
         var c = {
                 format: "%Y%\u5e74%M%\u6708%D%\u65e5 %N% %H%:%m%:%s% %W% \u8ddd\u79bb100\u5468\u5e74\u56fd\u5e86\u8fd8\u6709 %CD% \u5929",
                 hour12: !1,
@@ -491,11 +508,11 @@ sudyTouch for support touch
                 countDown: "2049/10/1"
             },
             d = a.extend(!0, {}, c, b),
-            e = function(a) {
+            e = function (a) {
                 var b = parseInt(a);
                 return 10 > b && (b = "0" + b), b
             },
-            f = function() {
+            f = function () {
                 var a = new Date,
                     b = a.getFullYear(),
                     c = a.getMonth() + 1,
@@ -518,16 +535,17 @@ sudyTouch for support touch
                     C: l
                 }
             };
-        return this.each(function() {
+        return this.each(function () {
             function e() {
-                c = d.format.replace("%Y%", f().Y).replace("%M%", f().M).replace("%D%", f().D).replace("%H%", f().H).replace("%m%", f().m).replace("%s%", f().s).replace("%W%", f().W).replace("%N%", f().N).replace("%CD%", f().C), b.html(c), setTimeout(function() {
+                c = d.format.replace("%Y%", f().Y).replace("%M%", f().M).replace("%D%", f().D).replace("%H%", f().H).replace("%m%", f().m).replace("%s%", f().s).replace("%W%", f().W).replace("%N%", f().N).replace("%CD%", f().C), b.html(c), setTimeout(function () {
                     e()
                 }, 500)
             }
+
             var c, b = a(this);
             e()
         })
-    }, a.fn.sudyLinks = function(b) {
+    }, a.fn.sudyLinks = function (b) {
         var c = {
                 handle: ".links-name",
                 wrap: ".links-wrap",
@@ -540,14 +558,14 @@ sudyTouch for support touch
                 position: !0
             },
             d = a.extend(!0, {}, c, b);
-        return this.each(function() {
+        return this.each(function () {
             var h, b = a(this),
                 c = a(this).find(d.handle),
                 e = a(this).find(d.wrap),
                 f = c.outerHeight(),
                 i = e.outerHeight(),
                 f = e.css("bottom");
-            "block" == d.width && (b.css("display", "block"), c.css("display", "block")), /\d+/.test(d.width) && (b.css("width", d.width), c.css("display", "block")), "elink" == d.type && e.css("width", b.width() - 2), b.on(d.trigger, function() {
+            "block" == d.width && (b.css("display", "block"), c.css("display", "block")), /\d+/.test(d.width) && (b.css("width", d.width), c.css("display", "block")), "elink" == d.type && e.css("width", b.width() - 2), b.on(d.trigger, function () {
                 var g = b.offset().top,
                     j = a(window).scrollTop(),
                     k = g - j;
@@ -558,13 +576,13 @@ sudyTouch for support touch
                     top: "auto",
                     bottom: f
                 }), clearTimeout(h), d.position && b.css("position", "relative"), c.addClass("wrap-open"), "slide" == d.effect ? e.stop(!0, !0).hide().slideDown(d.speed) : "fade" == d.effect ? e.stop(!0, !0).hide().fadeIn(d.speed) : e.show()
-            }), b.mouseleave(function() {
-                h = setTimeout(function() {
+            }), b.mouseleave(function () {
+                h = setTimeout(function () {
                     d.position && b.css("position", "static"), c.removeClass("wrap-open"), "slide" == d.effect ? e.stop(!0, !0).slideUp(d.speed) : "fade" == d.effect ? e.stop(!0, !0).fadeOut(d.speed) : e.hide()
                 }, d.hidePause)
             })
         })
-    }, a.fn.sudyScroll = function(b) {
+    }, a.fn.sudyScroll = function (b) {
         var c = {
                 width: 200,
                 height: 100,
@@ -580,7 +598,7 @@ sudyTouch for support touch
                 pagTrigger: "mouseenter"
             },
             d = a.extend(!0, {}, c, b);
-        return this.each(function() {
+        return this.each(function () {
             function n() {
                 a(".page-index", l).eq(i).addClass("active").siblings().removeClass("active")
             }
@@ -600,6 +618,7 @@ sudyTouch for support touch
             function q() {
                 i--, 0 > i && (i = h - 1), o(i)
             }
+
             a(this).wrap('<div class="sudy-scroll-wrap">');
             var b = a(this),
                 c = a(this).children(),
@@ -613,57 +632,57 @@ sudyTouch for support touch
             d.step = d.step > d.display ? d.display : d.step, f.wrap('<div class="sudy-scroll" id="' + g + '">');
             var l = a(this).parent().parent();
             if ("x" == d.dir ? (l.css({
-                    width: d.width * d.display + "px",
-                    height: d.height + "px"
-                }), f.css({
-                    width: d.width * d.display + "px",
-                    height: d.height + "px"
-                }), b.css({
-                    width: d.width * e + "px",
-                    height: d.height + "px",
-                    position: "absolute",
-                    left: "0px",
-                    top: "0px"
-                }), c.css({
-                    width: d.width + "px",
-                    height: d.height + "px",
-                    "float": "left",
-                    display: "inline-block"
-                })) : (l.css({
-                    width: d.width + "px",
-                    height: d.height * d.display + "px"
-                }), f.css({
-                    width: d.width + "px",
-                    height: d.height * d.display + "px"
-                }), b.css({
-                    width: d.width + "px",
-                    position: "absolute",
-                    left: "0px",
-                    top: "0px"
-                }), c.css({
-                    width: d.width + "px",
-                    height: d.height + "px"
-                })), d.navigation && l.append('<div class="sudy-scroll-nav"><a href="javascript:;" class="nav-prev">&lt;</a><a href="javascript:;" class="nav-next">&gt;</a></div>'), d.pagination) {
+                width: d.width * d.display + "px",
+                height: d.height + "px"
+            }), f.css({
+                width: d.width * d.display + "px",
+                height: d.height + "px"
+            }), b.css({
+                width: d.width * e + "px",
+                height: d.height + "px",
+                position: "absolute",
+                left: "0px",
+                top: "0px"
+            }), c.css({
+                width: d.width + "px",
+                height: d.height + "px",
+                "float": "left",
+                display: "inline-block"
+            })) : (l.css({
+                width: d.width + "px",
+                height: d.height * d.display + "px"
+            }), f.css({
+                width: d.width + "px",
+                height: d.height * d.display + "px"
+            }), b.css({
+                width: d.width + "px",
+                position: "absolute",
+                left: "0px",
+                top: "0px"
+            }), c.css({
+                width: d.width + "px",
+                height: d.height + "px"
+            })), d.navigation && l.append('<div class="sudy-scroll-nav"><a href="javascript:;" class="nav-prev">&lt;</a><a href="javascript:;" class="nav-next">&gt;</a></div>'), d.pagination) {
                 var m = '<div class="sudy-scroll-page">';
-                a.each(new Array(h), function(a) {
+                a.each(new Array(h), function (a) {
                     m = m + '<a class="page-index page-' + a + '" href="javascript:;"><span>' + a + "</span></a>"
                 }), l.append(m)
             }
             if (o(i), d.auto) {
                 var r;
-                l.hover(function() {
+                l.hover(function () {
                     clearTimeout(r)
-                }, function() {
-                    r = setTimeout(function() {
+                }, function () {
+                    r = setTimeout(function () {
                         p(), l.trigger("mouseleave")
                     }, d.hoverPause)
                 }).trigger("mouseleave")
             }
-            a(".nav-next", l).on(d.navTrigger, function() {
+            a(".nav-next", l).on(d.navTrigger, function () {
                 p()
-            }), a(".nav-prev", l).on(d.navTrigger, function() {
+            }), a(".nav-prev", l).on(d.navTrigger, function () {
                 q()
-            }), a(".page-index", l).on(d.pagTrigger, function() {
+            }), a(".page-index", l).on(d.pagTrigger, function () {
                 i = a(this).index(), o(i)
             })
         })

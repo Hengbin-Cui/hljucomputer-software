@@ -297,7 +297,7 @@
 /**选项卡**/
 
 .sudy-tab {
-    background: ##EDEDED;
+    background: # #EDEDED;
     padding-top: 60px;
 }
 
@@ -389,7 +389,8 @@
     cursor: default;
 }
 
-.sudy-links .wrap-open {}
+.sudy-links .wrap-open {
+}
 
 .sudy-links .links-wrap {
     overflow: hidden;

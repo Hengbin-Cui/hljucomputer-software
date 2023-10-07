@@ -1,7 +1,7 @@
 // wp_nav:导航
 ;
-(function($) {
-    $.fn.sudyNav = function() {
+(function ($) {
+    $.fn.sudyNav = function () {
         var defaults = {
             vertical: {
                 active: '0',
@@ -14,9 +14,9 @@
             opacity_main: '1',
             opacity_sub: '1'
         };
-        return this.each(function() {
+        return this.each(function () {
             var option = {};
-            eval('option = ' + ($(this).attr("data-nav-config") || {}) + ';');
+            eval('option = ' + ($(this).attr("data-nav-config") || {}) + '');
             var o = $.extend(true, {}, defaults, option);
             var c = $(this);
             var cW = (o.dWidth == '0') ? c.width() : $(document.body).width();
@@ -25,7 +25,7 @@
             var su = u.find("ul");
             var cl = c.children('.nav-item');
             var cu = c.children('.nav-item').children('ul');
-            var isIE6 = !-[1, ] && !window.XMLHttpRequest;
+            var isIE6 = !-[1,] && !window.XMLHttpRequest;
             if (o.vertical.active == '1') {
                 c.css({
                     height: 'auto'
@@ -94,18 +94,19 @@
                     });
                 }
             }
-            $.each(cl, function() {
+
+            $.each(cl, function () {
                 var clW = $(this).width();
                 var clH = $(this).height();
                 setOpacity($(this), o.opacity_main, clW, clH);
             });
-            $.each(u, function() {
+            $.each(u, function () {
                 var sl = $(this).children(".nav-item"),
                     suW = 0,
                     suH = 0,
                     sW = 0,
                     sH = 0;
-                $.each(sl, function() {
+                $.each(sl, function () {
                     var slW = $(this).outerWidth(),
                         slH = $(this).outerHeight();
                     suW = suW < slW ? slW : suW;
@@ -150,7 +151,7 @@
                 }
             });
             if (o.dir !== 'x' && o.vertical.active !== '1') {
-                $.each(cu, function() {
+                $.each(cu, function () {
                     var pH = $(this).parent('.nav-item').outerHeight();
                     if (o.drop_v == 'up') {
                         $(this).css({
@@ -172,11 +173,11 @@
                     }
                 });
             }
-            l.hover(function() {
+            l.hover(function () {
                 $(this).addClass("on").siblings().removeClass("on");
                 $(this).children('a').addClass('parent');
                 $(this).children("ul").css("visibility", "visible").end().siblings().find("ul").css("visibility", "hidden");
-            }, function() {
+            }, function () {
                 $(this).removeClass("on");
                 $(this).children('a').removeClass('parent');
                 $(this).find("ul").css("visibility", "hidden");
@@ -185,6 +186,6 @@
     };
 })(jQuery);
 
-$(function() {
+$(function () {
     $(".wp_nav").sudyNav();
 });

@@ -205,7 +205,7 @@
 
 .wp_entry img {
     max-width: 640px;
-    _width: :expression(this.width>640?"640px":this.width+"px");
+    _width:: expression(this.width>640?"640px":this.width+"px");
 }
 
 /***文章内容分页***/
@@ -607,7 +607,8 @@
 
 /** 搜索 **/
 
-.wp_search {}
+.wp_search {
+}
 
 .wp_search .search {
     background: url(../images/btn_search.gif);

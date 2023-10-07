@@ -1,7 +1,7 @@
 ;
-(function($) {
-    if (!dateFormat || typeof(dateFormat) != "function") {
-        var dateFormat = function(format) {
+(function ($) {
+    if (!dateFormat || typeof (dateFormat) != "function") {
+        var dateFormat = function (format) {
             var o = {
                 "M+": this.getMonth() + 1,
                 "d+": this.getDate(),
@@ -23,15 +23,15 @@
             return format;
         };
     }
-    if (!DateAdd || typeof(DateDiff) != "function") {
-        var DateAdd = function(interval, number, idate) {
+    if (!DateAdd || typeof (DateDiff) != "function") {
+        var DateAdd = function (interval, number, idate) {
             number = parseInt(number);
             var date;
-            if (typeof(idate) == "string") {
+            if (typeof (idate) == "string") {
                 date = idate.split(/\D/);
                 eval("var date = new Date(" + date.join(",") + ")");
             }
-            if (typeof(idate) == "object") {
+            if (typeof (idate) == "object") {
                 date = new Date(idate.toString());
             }
             switch (interval) {
@@ -63,8 +63,8 @@
             return date;
         }
     }
-    if (!DateDiff || typeof(DateDiff) != "function") {
-        var DateDiff = function(interval, d1, d2) {
+    if (!DateDiff || typeof (DateDiff) != "function") {
+        var DateDiff = function (interval, d1, d2) {
             switch (interval) {
                 case "d": //date
                 case "w":
@@ -122,27 +122,27 @@
     $.browser.msie7 = $.browser.msie && /msie 7\.0/i.test(userAgent);
     $.browser.msie6 = !$.browser.msie8 && !$.browser.msie7 && $.browser.msie && /msie 6\.0/i.test(userAgent);
     if ($.fn.noSelect == undefined) {
-        $.fn.noSelect = function(p) { //no select plugin by me :-)
+        $.fn.noSelect = function (p) { //no select plugin by me :-)
             if (p == null)
                 prevent = true;
             else
                 prevent = p;
             if (prevent) {
-                return this.each(function() {
-                    if ($.browser.msie || $.browser.safari) $(this).bind('selectstart', function() {
+                return this.each(function () {
+                    if ($.browser.msie || $.browser.safari) $(this).bind('selectstart', function () {
                         return false;
                     });
                     else if ($.browser.mozilla) {
                         $(this).css('MozUserSelect', 'none');
                         $('body').trigger('focus');
-                    } else if ($.browser.opera) $(this).bind('mousedown', function() {
+                    } else if ($.browser.opera) $(this).bind('mousedown', function () {
                         return false;
                     });
                     else $(this).attr('unselectable', 'on');
                 });
 
             } else {
-                return this.each(function() {
+                return this.each(function () {
                     if ($.browser.msie || $.browser.safari) $(this).unbind('selectstart');
                     else if ($.browser.mozilla) $(this).css('MozUserSelect', 'inherit');
                     else if ($.browser.opera) $(this).unbind('mousedown');
@@ -151,8 +151,9 @@
 
             }
         }; //end noSelect
-    };
-    $.fn.datepicker = function(o) {
+    }
+
+    $.fn.datepicker = function (o) {
         var def = {
             weekStart: 0,
             weekName: [i18n.datepicker.dateformat.sun, i18n.datepicker.dateformat.mon, i18n.datepicker.dateformat.tue, i18n.datepicker.dateformat.wed, i18n.datepicker.dateformat.thu, i18n.datepicker.dateformat.fri, i18n.datepicker.dateformat.sat], //week language support
@@ -262,7 +263,7 @@
                 top: -193
             }, {
                 duration: 200,
-                complete: function() {
+                complete: function () {
                     $("#BBIT-DP-MP").hide();
                 }
             });
@@ -277,7 +278,7 @@
                 top: -193
             }, {
                 duration: 200,
-                complete: function() {
+                complete: function () {
                     $("#BBIT-DP-MP").hide();
                 }
             });
@@ -306,7 +307,7 @@
                 ar.push(s + i);
                 ar.push(s + i + 5);
             }
-            $("#BBIT-DP-MP td.bbit-dp-mp-year").each(function(i) {
+            $("#BBIT-DP-MP td.bbit-dp-mp-year").each(function (i) {
                 if (def.Year == ar[i]) {
                     $(this).addClass("bbit-dp-mp-sel");
                 } else {
@@ -545,12 +546,12 @@
             tb.html(bhm.join(""));
         }
 
-        return $(this).each(function() {
+        return $(this).each(function () {
 
             var obj = $(this).addClass("bbit-dp-input");
             var picker = $(def.picker);
             def.showtarget == null && obj.after(picker);
-            picker.click(function(e) {
+            picker.click(function (e) {
                 var isshow = $(this).attr("isshow");
                 //hide it initially
                 var me = $(this);
@@ -630,11 +631,10 @@
                 cp.css(newpos);
 
 
-
                 //cp.show();
                 $(this).attr("isshow", "1");
 
-                $(document).one("click", function(e) {
+                $(document).one("click", function (e) {
                     me.attr("isshow", "0");
                     cp.removeData("ctarget").removeData("cpk").removeData("indata");
                     cp.css("visibility", "hidden");

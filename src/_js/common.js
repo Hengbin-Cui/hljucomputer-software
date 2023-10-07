@@ -1,7 +1,7 @@
 /**
  * 清除全局ajax缓存
  */
-$.ajaxSetup({ cache: false});
+$.ajaxSetup({cache: false});
 /**
  * 常用辅助脚本
  */
@@ -35,8 +35,8 @@ function initCommonJS() {
         buttons: [{
             text: '确定',
             iconCls: 'icon-ok',
-            handler: function() {
-                $.post(curr_actionUrl, {}, function(result) {
+            handler: function () {
+                $.post(curr_actionUrl, {}, function (result) {
                     if (result == "success") {
                         theDataGrid.datagrid("reload");
                         if (curr_callback != null) {
@@ -51,11 +51,11 @@ function initCommonJS() {
         }, {
             text: '取消',
             iconCls: 'icon-cancel',
-            handler: function() {
+            handler: function () {
                 actionDiv.dialog("close");
             }
         }],
-        onOpen: function() {
+        onOpen: function () {
             $(this).dialog('move', {
                 top: ($(window).height() - $(this).panel('panel').outerHeight()) / 2 + $(document).scrollTop()
             });
@@ -71,7 +71,7 @@ function initCommonJS() {
         buttons: [{
             text: '确定',
             iconCls: 'icon-ok',
-            handler: function() {
+            handler: function () {
                 //alert(issubmited);
                 if (!issubmited) {
                     issubmited = true;
@@ -81,14 +81,14 @@ function initCommonJS() {
         }, {
             text: '取消',
             iconCls: 'icon-cancel',
-            handler: function() {
+            handler: function () {
                 dialogDiv.dialog("close");
             }
         }],
-        onClose: function() {
+        onClose: function () {
             dialogFrame.attr('src', '');
         },
-        onOpen: function() {
+        onOpen: function () {
             $(this).dialog('move', {
                 top: ($(window).height() - $(this).panel('panel').outerHeight()) / 2 + $(document).scrollTop()
             });
@@ -101,10 +101,10 @@ function initCommonJS() {
         closed: true,
         resizable: true,
         modal: true,
-        onClose: function() {
+        onClose: function () {
             dialogFrame1.attr('src', '');
         },
-        onOpen: function() {
+        onOpen: function () {
             $(this).dialog('move', {
                 top: ($(window).height() - $(this).panel('panel').outerHeight()) / 2 + $(document).scrollTop()
             });
@@ -131,14 +131,17 @@ function openWaitingBar() {
     $("#wb_tipMsg").html('程序处理中...');
     waitingBar.window('open');
 }
+
 function openWaitingBar(tipMsg) {
     $("#wb_tipMsg").html(tipMsg);
     waitingBar.window('open');
 }
+
 function closeWaitingBar() {
     $("#wb_tipMsg").html('程序处理中...');
     waitingBar.window('close');
 }
+
 function changeWaitingBarProgress(progressMsg) {
     $("#wb_tipMsg").html(progressMsg);
 }
@@ -319,7 +322,7 @@ function checkSelectOneDoFunc(gridName, actName, objName, func, requireConfirm, 
             curr_func = func;
             curr_selected = id;
             if (requireConfirm) {
-                $.messager.confirm("确认", getConfirmAlert(actName, objName), function(r) {
+                $.messager.confirm("确认", getConfirmAlert(actName, objName), function (r) {
                     if (r) {
                         curr_func(curr_selected);
                     }
@@ -355,7 +358,7 @@ function checkSelectOneDoAction(gridName, actName, objName, actionUrl, requireCo
                 /*actionContent.html(getConfirmAlert(actName,objName));
                  actionDiv.dialog({top:getScrollTop()+50});
                  actionDiv.dialog("open");*/
-                $.messager.confirm(actName + "确认", getConfirmAlert(actName, objName), function(r) {
+                $.messager.confirm(actName + "确认", getConfirmAlert(actName, objName), function (r) {
                     if (r) {
                         //确认操作
                         doPostAction(curr_actionUrl, gridName, curr_callback);
@@ -399,7 +402,7 @@ function checkSelectSomeDoFunc(gridName, actName, objName, func, requireConfirm,
         curr_func = func;
         curr_selected = ids;
         if (requireConfirm) {
-            $.messager.confirm("确认", getConfirmAlert(actName, objName), function(r) {
+            $.messager.confirm("确认", getConfirmAlert(actName, objName), function (r) {
                 if (r) {
                     curr_func(curr_selected);
                 }
@@ -434,10 +437,10 @@ function checkSelectSomeDoAction(gridName, actName, objName, actionUrl, requireC
             curr_actionUrl = actionUrl + "?selectedIds=" + ids + "&t=" + Math.random();
         }
         if (requireConfirm) {
-            $.messager.confirm("确认", getConfirmAlert(actName, objName), function(r) {
+            $.messager.confirm("确认", getConfirmAlert(actName, objName), function (r) {
                 if (r) {
                     openWaitingBar();
-                    $.post(curr_actionUrl, {}, function(result) {
+                    $.post(curr_actionUrl, {}, function (result) {
                         closeWaitingBar();
                         if (result == "success") {
                             $(gridName).datagrid("reload");
@@ -453,7 +456,7 @@ function checkSelectSomeDoAction(gridName, actName, objName, actionUrl, requireC
         } else {
             if (!window.parent.issubmited) {
                 openWaitingBar();
-                $.post(curr_actionUrl, {}, function(result) {
+                $.post(curr_actionUrl, {}, function (result) {
                     closeWaitingBar();
                     if (result == "success") {
                         window.parent.issubmited = true;
@@ -470,6 +473,7 @@ function checkSelectSomeDoAction(gridName, actName, objName, actionUrl, requireC
         }
     }
 }
+
 function setVal() {
     window.parent.issubmited = false;
 }
@@ -487,9 +491,9 @@ function gridDoAction(gridName, actName, objName, actionUrl, requireConfirm, cal
         curr_actionUrl = actionUrl + "?t=" + Math.random();
     }
     if (requireConfirm) {
-        $.messager.confirm("确认", getConfirmAlert(actName, objName), function(r) {
+        $.messager.confirm("确认", getConfirmAlert(actName, objName), function (r) {
             if (r) {
-                $.post(curr_actionUrl, {}, function(result) {
+                $.post(curr_actionUrl, {}, function (result) {
                     if (result == "success") {
                         $(gridName).datagrid("reload");
                         if (curr_callback != null) {
@@ -502,7 +506,7 @@ function gridDoAction(gridName, actName, objName, actionUrl, requireConfirm, cal
             }
         });
     } else {
-        $.post(curr_actionUrl, {}, function(result) {
+        $.post(curr_actionUrl, {}, function (result) {
             if (result == "success") {
                 $(gridName).datagrid("reload");
                 if (curr_callback != null) {
@@ -523,7 +527,7 @@ function checkDoFunc(actName, func, requireConfirm, callback) {
         curr_callback = null;
     }
     if (requireConfirm) {
-        $.messager.confirm("确认", getConfirmAlert1(actName), function(r) {
+        $.messager.confirm("确认", getConfirmAlert1(actName), function (r) {
             if (r) {
                 curr_func();
             }
@@ -537,7 +541,7 @@ function getScrollTop() {
     return $(parent.window.parent.window.parent.window.parent.document).scrollTop();
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     initCommonJS();
     if ($("#fm")[0]) {
         initForm("#fm");
@@ -547,7 +551,7 @@ $(document).ready(function() {
 function initForm(fm) {
     theForm = $(fm);
     theForm.form({
-        onSubmit: function() {
+        onSubmit: function () {
             var validateStr = theForm.attr('validate');
             var result = true;
             if (validateStr) {
@@ -568,7 +572,7 @@ function initForm(fm) {
             openWaitingBar();
             return true;
         },
-        success: function(result) {
+        success: function (result) {
             closeWaitingBar();
             if (jQuery.trim(result) != "success") {
                 alertMsg(result);
@@ -594,7 +598,7 @@ function initForm(fm) {
             }
 
         },
-        error: function() {
+        error: function () {
             closeWaitingBar();
             alertMsg(alertPrefix + "保存表单失败!");
             issubmited = false;
@@ -620,13 +624,13 @@ function submitForm(theDialog, theDataGrid, callback) {
  */
 function checkDoAction(actName, objName, actionUrl, requireConfirm, nextFun) {
     if (requireConfirm) {
-        $.messager.confirm(actName + "确认", getConfirmAlert(actName, objName), function(r) {
+        $.messager.confirm(actName + "确认", getConfirmAlert(actName, objName), function (r) {
             if (r) {
                 openWaitingBar();
                 $.ajax({
                     type: "POST",
                     url: actionUrl,
-                    success: function(result) {
+                    success: function (result) {
                         closeWaitingBar();
                         if (result == "success") {
                             var msg = "{'title':'提示','msg':'" + actName + objName + "成功!','icon':'info','fn':'" + nextFun + "'}";
@@ -635,7 +639,7 @@ function checkDoAction(actName, objName, actionUrl, requireConfirm, nextFun) {
                             alertMsg(result);
                         }
                     },
-                    error: function() {
+                    error: function () {
                         closeWaitingBar();
                         alertMsg(alertPrefix + "请求" + actName + objName + "失败!");
                     }
@@ -647,7 +651,7 @@ function checkDoAction(actName, objName, actionUrl, requireConfirm, nextFun) {
         $.ajax({
             type: "POST",
             url: actionUrl,
-            success: function(result) {
+            success: function (result) {
                 closeWaitingBar();
                 if (result == "success") {
                     var msg = "{'title':'提示','msg':'" + actName + objName + "成功!','icon':'info','fn':'" + nextFun + "'}";
@@ -656,7 +660,7 @@ function checkDoAction(actName, objName, actionUrl, requireConfirm, nextFun) {
                     alertMsg(result);
                 }
             },
-            error: function() {
+            error: function () {
                 closeWaitingBar();
                 alertMsg(alertPrefix + "请求" + actName + objName + "失败!");
             }
@@ -676,7 +680,7 @@ function checkDoAction(actName, objName, actionUrl, requireConfirm, nextFun) {
  */
 function checkSubmitForm(actName, objName, formName, requireConfirm, nextFun) {
     $(formName).form({
-        onSubmit: function() {
+        onSubmit: function () {
             if ($(this).form("validate")) {
                 openWaitingBar();
                 return true;
@@ -684,7 +688,7 @@ function checkSubmitForm(actName, objName, formName, requireConfirm, nextFun) {
                 return false;
             }
         },
-        success: function(result) {
+        success: function (result) {
             closeWaitingBar();
             if (jQuery.trim(result) != "success") {
                 alertMsg(result);
@@ -696,7 +700,7 @@ function checkSubmitForm(actName, objName, formName, requireConfirm, nextFun) {
     });
 
     if (requireConfirm) {
-        $.messager.confirm('确认', alertPrefix + "确认" + actName + "选中的" + objName + "!", function(r) {
+        $.messager.confirm('确认', alertPrefix + "确认" + actName + "选中的" + objName + "!", function (r) {
             if (r) {
                 $(formName).submit();
             }
@@ -713,7 +717,7 @@ function checkSubmitForm(actName, objName, formName, requireConfirm, nextFun) {
  * @param curr_callback 回调函数
  */
 function doPostAction(actionUrl, gridName, curr_callback) {
-    $.post(actionUrl, {}, function(result) {
+    $.post(actionUrl, {}, function (result) {
         if (result == "success") {
             $(gridName).datagrid("reload");
             if (curr_callback != null) {
@@ -737,7 +741,7 @@ function doPostAction(actionUrl, gridName, curr_callback) {
 function alertMsg(jsonOrStrResult) {
     try {
         var jsonResult = eval("[" + jsonOrStrResult + "]");
-        var fn = function() {
+        var fn = function () {
             if (jsonResult[0].fn != undefined) {
                 eval(jsonResult[0].fn);
             }
@@ -752,6 +756,7 @@ function alertMsg(jsonOrStrResult) {
  * private 验证进度条是否处于打开状态
  */
 var progressBarIsOpen = false;
+
 /**
  * public 默认打开进度条
  *   打开进度条
@@ -813,7 +818,7 @@ function openProgressBar(args, modal, title, msg, text, interval) {
         _1e.interval = 300;
     }
     if (_1e.interval) {
-        win[0].timer = setInterval(function() {
+        win[0].timer = setInterval(function () {
             var v = bar.progressbar("getValue");
             v += Math.floor(Math.random() * 10);
             if (v > 100) {
@@ -846,8 +851,8 @@ function openProgressBar_b(_c, _d, _e, _g) {
         maximizable: false,
         resizable: false,
         draggable: false,
-        onClose: function() {
-            setTimeout(function() {
+        onClose: function () {
+            setTimeout(function () {
                 _f.window("destroy");
             }, 1000);
         }
@@ -956,7 +961,7 @@ function openFullScreen(url, title) {
     var w = window.open(url, title, args);
     if (!w) {
         $.messager.alert("发现弹出窗口被阻止，请更改浏览器设置，以便正常使用本功能!");
-        return;
+
     }
 }
 

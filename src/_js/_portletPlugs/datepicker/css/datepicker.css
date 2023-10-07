@@ -52,7 +52,8 @@
     outline: 0 none;
 }
 
-.ie .bbit-dp-top-center button {}
+.ie .bbit-dp-top-center button {
+}
 
 .bbit-dp-top-right {
     height: 21px;

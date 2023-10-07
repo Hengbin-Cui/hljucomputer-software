@@ -48,7 +48,8 @@
     z-index: 100;
 }
 
-.wp_nav .nav-item a.parent:hover {}
+.wp_nav .nav-item a.parent:hover {
+}
 
 .wp_nav .nav-item a.parent {
     color: #000;
@@ -104,10 +105,14 @@
     line-height: 22px;
 }
 
-.wp_nav .nav-item a.parent:hover span.item-name {}
+.wp_nav .nav-item a.parent:hover span.item-name {
+}
 
-.wp_nav .nav-item a.parent span.item-name {}
+.wp_nav .nav-item a.parent span.item-name {
+}
 
-.wp_nav .sub-nav .nav-item a.parent:hover span.item-name {}
+.wp_nav .sub-nav .nav-item a.parent:hover span.item-name {
+}
 
-.wp_nav .sub-nav .nav-item a.parent span.item-name {}
+.wp_nav .sub-nav .nav-item a.parent span.item-name {
+}

@@ -25,15 +25,15 @@ if (/Android|Windows Phone|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.us
 //    localeChain = "en_US";
 }
 
-$().ready(function() {
-    $("script[sudy-wp-context]").each(function(i) {
+$().ready(function () {
+    $("script[sudy-wp-context]").each(function (i) {
         context = $(this).attr("sudy-wp-context");
         if (context) {
             context = "/" + context;
         }
     });
     changeVideoHtml();
-    $(".wp_audio_player,div[sudyplayer='wp_audio_player'],img[sudyplayer='wp_audio_player']").each(function(i) {
+    $(".wp_audio_player,div[sudyplayer='wp_audio_player'],img[sudyplayer='wp_audio_player']").each(function (i) {
         var id = $(this).attr("id");
         var _src = $(this).attr("sudy-wp-player");
         if (!_src) {
@@ -42,7 +42,7 @@ $().ready(function() {
         if (!_src) {
             _src = $(this).attr("src");
         }
-        if (!window.applicationCache && typeof(Worker) == "undefined") {
+        if (!window.applicationCache && typeof (Worker) == "undefined") {
             player = jwplayerIE8(id).setup({
                 flashplayer: context + jwplayerIE8_playurl,
                 file: _src,
@@ -52,27 +52,27 @@ $().ready(function() {
                 repeat: $(this).attr("repeat") === "true" ? "always" : $(this).attr("repeat"),
                 controlbar: 'bottom'
             });
-             player.onReady(function() {//准备就绪设置浮动方式
+            player.onReady(function () {//准备就绪设置浮动方式
                 if (floatt)
                     $("#" + id + "_wrapper").css("float", floatt);
-                if (margin){
-					$("#" + id + "_wrapper").css("margin", "0 auto");
+                if (margin) {
+                    $("#" + id + "_wrapper").css("margin", "0 auto");
                     $("#" + id + "_wrapper").css("display", "block");
                     $("#" + id).css("margin", "0 auto");
                     $("#" + id).css("display", "block");
-				}
+                }
             });
         } else {
-        	var jwId = $(this).attr("id");
+            var jwId = $(this).attr("id");
             jwId = "id" + jwId;
             jwId = jwId.replace(/\./gi, "0");
-            var autoplay = $(this).attr("autostart"); 
+            var autoplay = $(this).attr("autostart");
             $(this).attr("id", jwId);
-            var con = '<video  controls="controls" loop="'+($(this).attr("repeat") === "true" ? "always" : $(this).attr("repeat"))+'" src="'+_src+'" preload controls="controls" width="500" height="23" ><p>Your user agent does not support the HTML5 Video element.</p></video>';
-			if(autoplay === "true"){
-            	con = '<video  controls="controls" autoplay loop="'+($(this).attr("repeat") === "true" ? "always" : $(this).attr("repeat"))+'" src="'+_src+'" preload controls="controls" width="500" height="23" ><p>Your user agent does not support the HTML5 Video element.</p></video>';
-        	}
-        	$(this).html(con);
+            var con = '<video  controls="controls" loop="' + ($(this).attr("repeat") === "true" ? "always" : $(this).attr("repeat")) + '" src="' + _src + '" preload controls="controls" width="500" height="23" ><p>Your user agent does not support the HTML5 Video element.</p></video>';
+            if (autoplay === "true") {
+                con = '<video  controls="controls" autoplay loop="' + ($(this).attr("repeat") === "true" ? "always" : $(this).attr("repeat")) + '" src="' + _src + '" preload controls="controls" width="500" height="23" ><p>Your user agent does not support the HTML5 Video element.</p></video>';
+            }
+            $(this).html(con);
         }
     });
 //     $("img[sudyplayer='wp_video_player']").each(function(i) {
@@ -88,7 +88,7 @@ $().ready(function() {
 //        $($(this).parent()).append("<div id=\""+id+"\" class=\""+_class+"\" style=\""+_style+"\" sudy-wp-player=\""+sudy_wp_player+"\" sudy-wp-src=\""+sudy_wp_src+"\" src=\""+_src+"\" sudy-wp-thumb=\""+sudy_wp_thumb+"\" autostart=\""+_autostart+"\" repeat=\""+_repeat+"\"></div>");
 //        $(this).remove();
 //    });
-    $(".wp_video_player,div[sudyplayer='wp_video_player'],img[sudyplayer='wp_video_player']").each(function(i) {
+    $(".wp_video_player,div[sudyplayer='wp_video_player'],img[sudyplayer='wp_video_player']").each(function (i) {
         if (!$(this).attr("style")) {
             $(this).css("width", "600px");
             $(this).css("height", "400px");
@@ -112,7 +112,7 @@ $().ready(function() {
         if (!_src) {
             _src = $(this).attr("src");
         }
-        if ((!window.applicationCache && typeof(Worker) == "undefined") || !isMp4(_src)) {
+        if ((!window.applicationCache && typeof (Worker) == "undefined") || !isMp4(_src)) {
             var floatt = $("#" + id).css("float");
             //var margin = $("#"+id).css("margin");
             var margin = document.getElementById(id).style.margin;
@@ -126,35 +126,35 @@ $().ready(function() {
                 repeat: $(this).attr("repeat") === "true" ? "always" : $(this).attr("repeat"),
                 controlbar: 'bottom'
             });
-            player.onReady(function() {//准备就绪设置浮动方式
+            player.onReady(function () {//准备就绪设置浮动方式
                 if (floatt)
                     $("#" + id + "_wrapper").css("float", floatt);
-                if (margin){
-					$("#" + id + "_wrapper").css("margin", "0 auto");
+                if (margin) {
+                    $("#" + id + "_wrapper").css("margin", "0 auto");
                     $("#" + id + "_wrapper").css("display", "block");
                     $("#" + id).css("margin", "0 auto");
                     $("#" + id).css("display", "block");
-				}
+                }
             });
         } else {
             var jwId = $(this).attr("id");
             jwId = "id" + jwId;
             jwId = jwId.replace(/\./gi, "0");
-            var autoplay = $(this).attr("autostart"); 
+            var autoplay = $(this).attr("autostart");
             $(this).attr("id", jwId);
-            var con = '<video  controls="controls" loop="'+($(this).attr("repeat") === "true" ? "always" : $(this).attr("repeat"))+'" src="'+_src+'" poster="'+($(this).attr("sudy-wp-thumb") ? $(this).attr("sudy-wp-thumb") : "")+'" preload="true" controls="controls" width="'+$(this).css("width").replace(/px/gi, "")+'" height="'+$(this).css("height").replace(/px/gi, "")+'" ><p>Your user agent does not support the HTML5 Video element.</p></video>';
-			if(autoplay === "true"){
-            	con = '<video  controls="controls" autoplay loop="'+($(this).attr("repeat") === "true" ? "always" : $(this).attr("repeat"))+'" src="'+_src+'" poster="'+($(this).attr("sudy-wp-thumb") ? $(this).attr("sudy-wp-thumb") : "")+'" preload="true" controls="controls" width="'+$(this).css("width").replace(/px/gi, "")+'" height="'+$(this).css("height").replace(/px/gi, "")+'" ><p>Your user agent does not support the HTML5 Video element.</p></video>';
-        	}
-        	$(this).html(con);
-    //     	if(autoplay === "true"){
-				// setTimeout(function (){
-	 		// 		var _video = $("#"+jwId+'video');
-	 		// 		_video[0].muted = "false";
-				// 	_video[0].play();
-    //     		},3000);
-    //     	}
-        	
+            var con = '<video  controls="controls" loop="' + ($(this).attr("repeat") === "true" ? "always" : $(this).attr("repeat")) + '" src="' + _src + '" poster="' + ($(this).attr("sudy-wp-thumb") ? $(this).attr("sudy-wp-thumb") : "") + '" preload="true" controls="controls" width="' + $(this).css("width").replace(/px/gi, "") + '" height="' + $(this).css("height").replace(/px/gi, "") + '" ><p>Your user agent does not support the HTML5 Video element.</p></video>';
+            if (autoplay === "true") {
+                con = '<video  controls="controls" autoplay loop="' + ($(this).attr("repeat") === "true" ? "always" : $(this).attr("repeat")) + '" src="' + _src + '" poster="' + ($(this).attr("sudy-wp-thumb") ? $(this).attr("sudy-wp-thumb") : "") + '" preload="true" controls="controls" width="' + $(this).css("width").replace(/px/gi, "") + '" height="' + $(this).css("height").replace(/px/gi, "") + '" ><p>Your user agent does not support the HTML5 Video element.</p></video>';
+            }
+            $(this).html(con);
+            //     	if(autoplay === "true"){
+            // setTimeout(function (){
+            // 		var _video = $("#"+jwId+'video');
+            // 		_video[0].muted = "false";
+            // 	_video[0].play();
+            //     		},3000);
+            //     	}
+
             // player = jwplayer(jwId).setup({
             //     flashplayer: context + jwplayer_playurl,
             //     file: _src,
@@ -180,10 +180,11 @@ $().ready(function() {
         }
     });
 });
+
 function changeVideoHtml() {
     var isIe = isIE();
-     $(".wp_video_player,div[sudyplayer='wp_video_player'],img[sudyplayer='wp_video_player']").each(function(i) {
-       var _src = $(this).attr("src");
+    $(".wp_video_player,div[sudyplayer='wp_video_player'],img[sudyplayer='wp_video_player']").each(function (i) {
+        var _src = $(this).attr("src");
         var _sudyvideosrc = $(this).attr("sudyurl");
         var _sudyvideoplayersrc = $(this).attr("targeturl");
         if (!_sudyvideosrc) {
@@ -196,16 +197,16 @@ function changeVideoHtml() {
             _sudyvideosrc = $(this).attr("src");
         }
         if (_sudyvideosrc) {
-             var width = $(this).css("width");
+            var width = $(this).css("width");
             var height = $(this).css("height");
             var style = $(this).attr("style");
-            if(!isIe && !fls.f && !isMp4(_sudyvideosrc)){
-                 var content = (style ? '<div style="' + style + '">' : '') + '<embed type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" width="' + width + '" height="' + height + '">' + (style ? '</div>' : '');
+            if (!isIe && !fls.f && !isMp4(_sudyvideosrc)) {
+                var content = (style ? '<div style="' + style + '">' : '') + '<embed type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" width="' + width + '" height="' + height + '">' + (style ? '</div>' : '');
                 $($(this)).replaceWith(content);
             }
         }
     });
-    $("embed").each(function(i) {
+    $("embed").each(function (i) {
         var content = "";
         var sudyvideosrc = $(this).attr("sudy-wp-player");
         if (!sudyvideosrc) {
@@ -227,7 +228,7 @@ function changeVideoHtml() {
             }
         }
     });
-    $(".wp_video_player,div[sudyplayer='wp_video_player'],img[sudyplayer='wp_video_player']").each(function(i) {
+    $(".wp_video_player,div[sudyplayer='wp_video_player'],img[sudyplayer='wp_video_player']").each(function (i) {
         var sudyvideosrc = $(this).attr("sudy-wp-player");
         if (!sudyvideosrc) {
             sudyvideosrc = $(this).attr("sudy-wp-src");
@@ -249,15 +250,17 @@ function changeVideoHtml() {
         }
     });
 }
+
 function convAnaly(isIe, sudyvideosrc, sudyattr, width, height, play, loop, allowfullscreen, style) {
     var content = "";
     if (JWPlayer(sudyvideosrc)) {
         content = '<div style="width:' + width + 'px;height:' + height + 'px;' + '" id="' + Math.random() + '" class="wp_video_player" sudyplayer="wp_video_player" sudyvideo-src="' + sudyvideosrc + '" autostart="' + play + '" repeat="' + loop + '" allowfullscreen="' + allowfullscreen + '"></div>';
     } else if (!isIe && (!FlashPlayer(sudyvideosrc) || (FlashPlayer(sudyvideosrc) && !fls.f))) {
         content = (style ? '<div style="' + style + '">' : '') + '<a href="' + sudyvideosrc + '"><img class="sudy-image-140" src="' + (sudyattr ? sudyattr : context + playImg) + '" style="width:' + width + ';height: ' + height + '"></a>' + (style ? '</div>' : '');
-    } if (QuickTime(sudyvideosrc) !== null) {
+    }
+    if (QuickTime(sudyvideosrc) !== null) {
         content = '<video  src="' + sudyvideosrc + '" width="' + width + '" height="' + height + '" autoplay="' + play + '" loop="' + loop + '" controls="controls"></video>';
-   }else {
+    } else {
         var uploadSrcType = "";
         if (WinPlayer(sudyvideosrc) !== null) {
             uploadSrcType = 'application/x-mplayer2';
@@ -269,75 +272,86 @@ function convAnaly(isIe, sudyvideosrc, sudyattr, width, height, play, loop, allo
             uploadSrcType = 'application/x-shockwave-flash';
         } else if (AudioPlayer(sudyvideosrc) !== null) {
             uploadSrcType = 'audio/mpeg';
-		}else{
-        	 return '<div style="' + style + '"><iframe style="border:0px;" src="' + sudyvideosrc + '" width="' + width + '" height="' + height + '"></iframe></div>';
+        } else {
+            return '<div style="' + style + '"><iframe style="border:0px;" src="' + sudyvideosrc + '" width="' + width + '" height="' + height + '"></iframe></div>';
         }
         content = (style ? '<div style="' + style + '">' : '') + '<embed type="' + uploadSrcType + '" class="edui-faked-video" pluginspage="http://www.macromedia.com/go/getflashplayer"' +
-                ' src="' + sudyvideosrc + '" width="' + width + '" height="' + height + '"' +
-                ' wmode="transparent" play="' + play + '" loop="' + loop + '" menu="false" allownetworking="none" allowscriptaccess="never" allowfullscreen="' + allowfullscreen + '" >' + (style ? '</div>' : '');
+            ' src="' + sudyvideosrc + '" width="' + width + '" height="' + height + '"' +
+            ' wmode="transparent" play="' + play + '" loop="' + loop + '" menu="false" allownetworking="none" allowscriptaccess="never" allowfullscreen="' + allowfullscreen + '" >' + (style ? '</div>' : '');
     }
     return content;
 }
+
 function JWPlayer(url) {
     var r, re;
     re = /.(mp4|flv|f4v|3gp|mid|mpg|mp3|wav|ogg)$/i;
     r = url.match(re);
     return r;
 }
+
 function WinPlayer(url) {
     var r, re;
     re = /.(avi|wmv|asf|mid|mpg)$/i;
     r = url.match(re);
     return r;
 }
+
 function RealPlayer(url) {
     var r, re;
     re = /.(rm|ra|rmvb|ram)$/i;
     r = url.match(re);
     return r;
 }
+
 function QuickTime(url) {
     var r, re;
     re = /.(mov|qt|quicktime)$/i;
     r = url.match(re);
     return r;
 }
+
 function FlashPlayer(url) {
     var r, re;
     re = /.swf$/i;
     r = url.match(re);
     return r;
 }
+
 function AudioPlayer(url) {
     var r, re;
     re = /.(mp3|wav|ogg|mpg)$/i;
     r = url.match(re);
     return r;
 }
+
 function VideoPlayer(url) {
     var r, re;
     re = /.(mp4|flv|f4v)$/i;
     r = url.match(re);
     return r;
 }
+
 function FlvPlayer(url) {
     var r, re;
     re = /.(flv.x|flv|FLVPlayer_Progressive.swf)$/i;
     r = url.match(re);
     return r;
 }
-function isIE() { //ie?  
+
+function isIE() { //ie?
     if (!!window.ActiveXObject || "ActiveXObject" in window)
         return true;
     else
         return false;
 }
+
 function isMp4(url) {
     var r, re;
     re = /.(mp4)$/i;
     r = url.match(re);
     return r;
 }
+
 function flashChecker() {
     var hasFlash = 0; //是否安装了flash 
     var flashVersion = 0; //flash版本 
