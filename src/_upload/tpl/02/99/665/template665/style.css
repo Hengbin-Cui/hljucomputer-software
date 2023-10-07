@@ -337,7 +337,7 @@ a.WhiteLink:active {
 /**主导航**/
 
 .wp-nav {
-    background: url(nav.png) no-repeat center;
+    background: #0475c5 no-repeat center;
     height: 45px;
     position: absolute;
     top: 125px;
